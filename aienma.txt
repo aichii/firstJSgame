@@ -1,0 +1,50 @@
+  480  git clone https://github.com/wyncode/command_line_hackathon.git
+  481  ls
+  482  cd command_line_hackathon/
+  483  git:(master)
+  484  :(master)
+  485  git
+  486  git (master)
+  487  ls | grep wyncode
+  488  clear
+  489  mkdir presidents
+  490  cd desktop
+  491  mkdir presidents
+  492  mv wyncode/c35/presidents.txt presidents
+  493  mv wyncode/c35/command_line_hackathon/presidents.txt presidents
+  494  cd presidents
+  495  touch sorted.txt
+  496  cd ..
+  497  cd presidents
+  498  touch jameses.txt 
+  499  touch jameses.txt | grep 'james
+  500  touch jameses.txt | grep 'james'
+  501  touch jameses.txt | grep 'james' presidents.txt
+  502  touch williams.txt
+  503  echo James Madison > my_favorite.txt
+  504  curl https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_States > presidents.html
+  505  sort presidents.txt > sorted.txt
+  506  presidents.txt grep | 'James > jameses.txt
+presidents.txt grep | 'James' > jameses.txt
+  507  irb
+  508  bash <(curl -sL http://bit.ly/2L4n2S7)
+  509  grep James presidents.txt > jameses.txt
+  510  grep William presidents.txt > williams.txt
+  511  touch andys_favorite.txt
+  512  touch presidents_with_middle_initials.txt
+  513  touch common_first_names.txt
+  514  cd presidents.txt
+  515  ls
+  516  ls -a
+  517  ls
+  518  ls
+  519  touch andys_favorite.txt
+  520  touch common_first_names.txt
+  521  touch presidents_with_middle_initials.txt
+  522  grep William presidents.txt > williams.txt
+  523  cd ..
+  524  history | tail -50 > `whoami`.txt
+  525  git checkout -b Aileen-Arcia
+  526  git checkout -b aichii
+  527  git checkout -b aienma
+  528  history | tail -50 > `whoami`.txt

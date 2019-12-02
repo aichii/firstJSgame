@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo VanillaJS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+</head>
+<body class="container">
+    <h1>Tasks</h1>
+    <form>
+        <input type="text" class="form-control">
+    </form>
+    <br>
+    <table class="table">
+        <!-- <tbody>
+            <tr>
+            <th>Task</th>
+            <th>Due</th>
+            </tr>
+        </tbody> -->
+    </table>
+    <script>
+        //listen for click event on delete button
+        //figure out which task needs to be deleted
+        //remove that task from the page 
+
+    //listen for user submitting form
+    //find out what the text is inside the input
+    //build a table row that represents the input
+    //insert that row into the table 
+
+    function handleFormSubmit(event){
+        event.preventDefault()
+        if input.value.trim().length > 0 {
+            const tableRow =
+        <tr>
+            <td>${input.value}</td>
+            <td><button class="btn btn-danger float-right">Delete</button></td>
+            </tr>
+            
+            tbody.innerHTML = tableRow + tbody.innerHTML
+            form.reset()
+        }
+      
+
+        console.log('You typed ${input.value}')
+    }  //alsoo...for the const below, after handleFormSubmit, we dont add the parentheses because we dont want it to do so automatically 
+    const form = document.querySelector('form')
+    const input = document.querySelector('input')
+    const tbody = document.querySelector('tbody') 
+    //we can use and ID for example, if were tying it in from the HTML. so #the-form
+    form.addEventListener('submit', handleFormSubmit) //addEventListener, we have to but the string that the form thing is "listening" or looking for
+    </script>
+</body>
+</html>

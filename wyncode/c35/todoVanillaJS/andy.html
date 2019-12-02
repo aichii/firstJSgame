@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo VanillaJS</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    >
+  </head>
+  <body class="container">
+    <h1>Tasks</h1>
+    <form>
+      <input type="text" class="form-control">
+    </form>
+    <br>
+    <table class="table">
+      <tbody>
+        <!-- <tr>
+          <td>Buy Milk</td>
+          <td><button class="btn btn-danger float-right">Delete</button></td>
+        </tr>
+        <tr>
+          <td>Buy Eggs</td>
+          <td><button class="btn btn-danger float-right">Delete</button></td>
+        </tr>
+        <tr>
+          <td>Buy Beer</td>
+          <td><button class="btn btn-danger float-right">Delete</button></td>
+        </tr> -->
+      </tbody>
+    </table>
+    <script>
+      // listen for click event on delete button
+
+      // figure out which task needs to be deleted
+
+      // remove that task from the page
+      let index = 0
+
+      function handleFormSubmit(event){
+        event.preventDefault()
+        if (input.value.trim().length){
+          index ++
+          const tableRow = `
+          <tr id="${index}">
+            <td>${input.value}</td>
+            <td>
+              <button
+                class="btn btn-danger float-right"
+                onclick="deleteTask(${index})"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+          `
+          tbody.innerHTML = tableRow + tbody.innerHTML
+        }
+        form.reset()
+      }
+
+      function deleteTask(id){
+        if (confirm("Are you sure?")){
+          const task = document.getElementById(id)
+          task.remove()
+        }
+      }
+    
+      const form = document.querySelector('form')
+      const input = document.querySelector('input')
+      const tbody = document.querySelector('tbody')
+
+      form.addEventListener('submit', handleFormSubmit)
+    </script>
+  </body>
+</html>

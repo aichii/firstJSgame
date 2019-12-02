@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Flick the Switch</title>
+        <style>
+                body { 
+                    margin: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    display: grid;
+                    place-items: center;
+                    background-color: yellow;
+                    transition: background-color  0.3s;
+                }
+               
+                body.dark {
+                    background-color: black;
+                }
+
+                img {
+                    transition: visibility 0.3s;
+                }
+
+                body.dark img {
+                    opacity: 0;
+                }
+            </style>
+    </head>
+ <body class="dark">
+        <img 
+        src="https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/assets/image/lightbulb.png"
+        alt="lightbulb"
+        id="ligntbulb"/>
+        
+       <button id="lightswitch">Click Me!</button>
+
+       <script>
+       const room = document.querySelector('body')
+       const ligntswitch = document.querySelector ('#lightswtich')
+
+       function flickTheSwitch ( 
+           room.classList.toggle('dark')
+        )
+
+       lightswitch.addEventlistener('click,' flickTheSwitch)
+       </script>
+ </body>
+</html>

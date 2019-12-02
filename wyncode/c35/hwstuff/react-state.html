@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>React Practice</title>
+    <script src="https://unpkg.com/react@16.8.4/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.8.4/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--
+      INSTRUCTIONS:
+
+      We have set up a basic counter component to keep track of how many times we have clicked the button.
+
+      Declare a new state variable called count with an initial value of 0.
+
+      Also create a function called incrementCount that increments the counter's value by one each time the button is clicked.
+
+    -->
+    <script type="text/babel">
+
+      class Counter extends React.Component {
+    state = {
+      count:0
+    }
+    incrementCount = () => {
+      this.setState(prevState => {
+        return {count: prevState.count + 1}
+      })
+    }
+        render(){
+          return(
+            <div>
+              <p>You clicked {this.state.count} times</p>
+              <button onClick={this.incrementCount}>
+                Click me
+              </button>
+            </div>
+          )
+        }
+      }
+
+      ReactDOM.render(<Counter />, document.getElementById('root'))
+    </script>
+  </body>
+</html>

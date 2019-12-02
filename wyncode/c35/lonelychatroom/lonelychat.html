@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>The Loneliest Chatroom</title>
+    <style>
+      *{
+        box-sizing: border-box;
+        font-family: "Arial Black", Gadget, sans-serif
+      }
+      body{
+        background-color: blue;
+      }
+      #main{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        margin: 0 10%;
+      }
+      #heading{
+        display: grid;
+        place-items: center;
+        background-color: aliceblue;
+        border-radius: 10px;
+        padding: 30px;
+      }
+      h1, h3{
+        margin: 0;
+        text-shadow: 3px 3px 3px lightgray;
+      }
+      #chatbox{
+        height: 300px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-content: start;
+        overflow-y: scroll;
+      }
+      .message{
+        display: grid;
+        grid-template-columns: 1fr 65px 10fr 1fr;
+        grid-gap: 10px;
+        padding: 5px;
+        border-radius: 5px;
+      }
+      .message:hover{
+        background-color: lightgray;
+      }
+      input{
+        width: 100%;
+        font-size: 1.5rem;
+        padding: 5px;
+      }
+      button{
+        font-size: 1.5rem;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .sender{
+        color: blue;
+      }
+      .delete{
+        cursor: pointer;
+        justify-self: end;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="heading">
+        <h1>The Loneliest Chatroom</h1>
+        
+      </div>
+      <div id="chatbox">
+        <div class="message" id="2">
+          <span>10:22</span>
+          <span class="sender">Myself:</span>
+          <span>Is it me you're looking for?</span>
+          <span class="delete">❌</span>
+        </div>
+        <div class="message" id="1">
+          <span>10:21</span>
+          <span class="sender">Me:</span>
+          <span>Hello?</span>
+          <span class="delete">❌</span>
+        </div>
+      </div>
+      <form><input type="text"/></form>
+      <button>I'm feeling Lonely!</button>
+    </div>
+    <script>
+      function getSender(){
+        const senders = ["Me", "Myself", "I"]
+        return senders[Math.floor(Math.random()*senders.length)]
+      }
+      function handleFormSubmit(event){
+        event.preventDefault()
+        const now = new Date()      
+        message = `
+          <div class="message" id="1">
+            <span>${now.getHours()}:${now.getMinutes()}</span>
+            <span class="sender">${getSender()}:</span>
+            <span>${input.value}</span>
+            <span class="delete">❌</span>
+          </div>`
+        chatBox.innerHTML = message + chatBox.innerHTML
+        input.value = ''
+      }
+      function norrisJoke(data){
+        console.log("in norrisJoke Func");
+        const now = new Date();   
+        const joke = data.value.joke;
+        message = `
+          <div class="message" id="1">
+            <span>${now.getHours()}:${now.getMinutes()}</span>
+            <span class="sender">Fact:</span>
+            <span>${joke}</span>
+            <span class="delete">❌</span>
+          </div>`
+        chatBox.innerHTML = message + chatBox.innerHTML;
+      }
+      function getJoke(){
+        fetch('https://api.icndb.com/jokes/random')
+          .then(response => response.json().then(norrisJoke))
+      }
+      const form = document.querySelector('form')
+      const input = document.querySelector('input')
+      const chatBox = document.querySelector('#chatbox')
+      const lonelyButton = document.querySelector('button')
+      chatBox.addEventListener('click', function (event) {
+        if (!event.target.classList.contains('delete')) 
+        return;
+        event.target.parentNode.remove()
+      });
+      form.addEventListener('submit', handleFormSubmit)
+      lonelyButton.addEventListener('click', getJoke)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ChuckNorrisJokes.com</title>
+    <style>
+        body {
+            display:grid;
+            place-items: center;
+            height: 100vh;
+            background-color: papayawhip;
+            text-align:center
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Click for a Joke</h1>
+        <button>Click me!</button>
+    </main>
+    <script>
+        const joke = document.querySelector('h1')
+        const button = document.querySelector('button')
+        
+async function fetchJoke () {
+    const repsonse = await fetch("http://api.icndb.com/jokes/random?limitTo=[nerdy]")
+    const data = await response.json()
+    .then(response => response.json())
+    .then(data => joke.textContent = data.value.joke)
+    .catch(error => joke.textContent = "Ooooops, sometin wen wron")
+        }
+
+    button.addEventListener('click', fetchJoke)
+    //.then means once u have the answer, what ar eu gonna do?
+    //fetch returns a 'promise' [to give me the answer]..which have 2 states, resolve or reject. you have to WAIT for the promise to come true.
+    </script>
+</body>
+</html>

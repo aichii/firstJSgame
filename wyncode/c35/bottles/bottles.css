@@ -1,0 +1,38 @@
+header {
+text-align: center;
+background-color: rgba(230, 219, 15, 0.856);
+margin: 30px;
+}
+
+b {
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 40px ;
+}
+
+body {
+background-image: url("wall.jpg");
+background-attachment: fixed;
+background-repeat: no-repeat;
+}
+.count {
+    color: maroon;
+    font-family: cursive;
+    font-size: 60px;
+}
+
+#larubia {
+position: absolute;
+display: grid;
+grid-template-columns: repeat(10, 1fr);
+width: 20%
+} 
+
+#larubia:hover {
+    transform: scale(0.5);
+}
+
+/* @media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.2 rem,
+    }
+} */
